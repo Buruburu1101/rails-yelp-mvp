@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="text-center my-5"><%= @restaurant.name %></h1>
+  <h6 class="card-subtitle mb-2 text-muted"><%= @restaurant.category %></h6>
+  <p class="card-text"><%=  @restaurant.phone_number %></p>
+  <p class="card-text"><%=  @restaurant.address %></p>
+     <div class="container">
+            <div class="container">
+              <div class="row">
+                <% @restaurant.reviews.each do |review| %>
+                  <div class="col-6">
+                    <div class="card-trip mb-3">
+                      <div class="card-tags">
+                          <span>Review:<%= review.content %></span>
+                          <br>
+                          <span>Rating:<%= review.rating %></span>
+                        <% end %>
+        </div>
+  <%= link_to "Add a review", new_restaurant_review_path(@restaurant) %>
+  <%= link_to "Back to the lists",  restaurants_path %>
+</div>
